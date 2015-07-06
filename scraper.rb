@@ -25,7 +25,7 @@ def scrape_mp(url)
   noko = noko_for(url)
   box = noko.css('#actu_left')
 
-  party_info = box.xpath('.//span[contains(.,"politique")]/following-sibling::a').text
+  party_info = box.xpath('.//span[contains(.,"politique")]/following-sibling::a[1]').text
   if matched = party_info.match(/(.*?)\s+\((.*?)\)/)
     party_id, party = matched.captures 
   elsif party_info.to_s.empty?
@@ -34,7 +34,6 @@ def scrape_mp(url)
     party = party_info
     party_info = nil
   end
-  binding.pry if party == 'unknown'
 
   data = { 
     id: url.to_s[/article(\d+)/, 1],
