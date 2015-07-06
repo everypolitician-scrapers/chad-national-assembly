@@ -39,7 +39,7 @@ def scrape_mp(url)
     party_id: party_id,
     area: box.xpath('.//span[contains(.,"Localisation")]/following-sibling::a[1]').text.strip,
     image: box.css('img.spip_logos/@src').text,
-    term: 2011,
+    term: 3,
   }
   data[:image] = URI.join(url, data[:image]).to_s unless data[:image].to_s.empty?
   puts data
@@ -47,8 +47,8 @@ def scrape_mp(url)
 end
 
 term = {
-  id: 2011,
-  name: '2011–',
+  id: 3,
+  name: 'Troisième Législature',
   start_date: '2011',
 }
 ScraperWiki.save_sqlite([:id], term, 'terms')
