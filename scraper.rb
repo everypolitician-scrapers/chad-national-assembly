@@ -28,9 +28,13 @@ def scrape_mp(url)
   party_info = box.xpath('.//span[contains(.,"politique")]/following-sibling::a').text
   if matched = party_info.match(/(.*?)\s+\((.*?)\)/)
     party_id, party = matched.captures 
-  else 
+  elsif party_info.to_s.empty?
     party_id, party = ["unknown", "unknown"]
+  else
+    party = party_info
+    party_info = nil
   end
+  binding.pry if party == 'unknown'
 
   data = { 
     id: url.to_s[/article(\d+)/, 1],
