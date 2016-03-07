@@ -45,7 +45,7 @@ def scrape_mp(url)
     term: 3,
   }
   data[:image] = URI.join(url, data[:image]).to_s unless data[:image].to_s.empty?
-  puts data
+  # puts data
   ScraperWiki.save_sqlite([:name, :term], data)
 end
 
