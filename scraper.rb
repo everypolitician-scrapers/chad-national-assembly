@@ -49,12 +49,4 @@ def scrape_mp(url)
   ScraperWiki.save_sqlite([:name, :term], data)
 end
 
-term = {
-  id: 3,
-  name: 'Troisième Législature',
-  start_date: '2011',
-}
-ScraperWiki.save_sqlite([:id], term, 'terms')
-
-
 scrape_list('http://www.assemblee-tchad.org/spip.php?rubrique49')
