@@ -3,9 +3,8 @@
 
 require 'nokogiri'
 require 'open-uri'
-require 'csv'
-require 'scraperwiki'
 require 'pry'
+require 'scraperwiki'
 
 require 'open-uri/cached'
 OpenURI::Cache.cache_path = '.cache'
